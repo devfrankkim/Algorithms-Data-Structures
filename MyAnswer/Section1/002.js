@@ -25,7 +25,7 @@ NO
 */
 
 // max값을 먼저 찾는다.
-// 그 다음 두개를 더한값이 긴거 보다 작으면 return yes
+// 그 다음 두개를 더한값이 긴거 보다 크면 return yes
 
 function solution(a, b, c) {
   let max;
