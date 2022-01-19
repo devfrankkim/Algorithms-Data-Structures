@@ -27,18 +27,16 @@ NO
 // max값을 먼저 찾는다.
 // 그 다음 두개를 더한값이 긴거 보다 크면 return yes
 
+// ===== before =====
 function solution(a, b, c) {
   let max;
   let two = [];
-  if (a < b) {
-    max = b;
-  } else {
-    max = a;
-  }
+  let yes = "YES";
+  let no = "NO";
 
-  if (max < c) {
-    max = c;
-  }
+  if (a < b) max = b;
+  else max = a;
+  if (max < c) max = c;
 
   if (max === a) {
     two.push(b, c);
@@ -49,7 +47,31 @@ function solution(a, b, c) {
   }
 
   two = two.reduce((prev, next) => prev + next);
-  two > max ? console.log("yes") : console.log("no");
+  return two > max ? yes : no;
 }
+// two numbers > max --- triangle (yes)
 
-solution(1, 3, 2);
+// ===== after =====
+function solution2(a, b, c) {
+  let answer = "YES",
+    max;
+  let total = a + b + c;
+  if (a > b) max = a;
+  else max = b;
+  if (c > max) max = c;
+  if (total - max <= max) answer = "NO";
+  return answer;
+}
+// total - max > max ---- triangle (yes)
+// total - max <= max ---- triangle (no)
+
+// two numbers (total - max) > max --- triangle (yes)
+
+console.log(solution(11, 3, 12));
+console.log(solution2(11, 3, 12));
+
+console.log(solution(13, 33, 17));
+console.log(solution2(13, 33, 17));
+
+console.log(solution(14, 13, 2));
+console.log(solution2(14, 13, 2));
