@@ -19,6 +19,22 @@
 20 7 23 19 10 8 13
 */
 
+let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+
+function solution1(arr) {
+  var sum = arr.reduce((a, b) => a + b, 0);
+
+  for (let i = 0; i < 9; i++) {
+    for (let j = i + 1; j < 9; j++) {
+      if (sum - (arr[i] + arr[j]) === 100) {
+        return arr.filter((number) => number !== arr[i] && number !== arr[j]);
+      }
+    }
+  }
+}
+
+console.log(solution1(arr));
+
 function solution(arr) {
   let answer = arr;
   let sum = answer.reduce((a, b) => a + b, 0);
@@ -33,5 +49,4 @@ function solution(arr) {
   return answer;
 }
 
-let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
 console.log(solution(arr));
