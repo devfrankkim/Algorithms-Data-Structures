@@ -34,8 +34,7 @@ function solution(arr) {
 let arr = [87, 89, 92, 100, 76];
 console.log(solution(arr));
 
-/*
-    
+/*    
     var arr = [1, 20, 3, 40]
     var arr1 = [1, 1, 1, 1]
 

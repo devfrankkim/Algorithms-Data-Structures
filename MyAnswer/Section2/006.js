@@ -60,6 +60,7 @@ function solution(arr) {
   // 우왼대각선 sum4 저장
   let sum4 = 0;
 
+  console.log(arr);
   for (let i = 0; i < n; i++) {
     // ((가로,세로 -> max), (왼우대각선 arr[i][i]), (우왼대각선 arr[i][n - i - 1];))
     sum3 += arr[i][i];
