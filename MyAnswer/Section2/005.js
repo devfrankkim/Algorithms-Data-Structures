@@ -33,3 +33,39 @@ function solution(arr) {
 
 let arr = [87, 89, 92, 100, 76];
 console.log(solution(arr));
+
+/*
+    
+    var arr = [1, 20, 3, 40]
+    var arr1 = [1, 1, 1, 1]
+
+    for(let i = 0; i < arr.length; i++){
+        for (let j = 0; j < arr.length; j++) {
+            if(arr[j] > arr[i]) arr1[i]++
+        }
+    }
+
+            // arr[0] > arr[0] 
+            // arr[1] > arr[0] arr[0]++
+            // arr[2] > arr[0] arr[0]++
+            // arr[3] > arr[0] arr[0]++
+            // [4, 1, 1, 1] 
+            // -----------------------
+            // arr[0] > arr[1] 
+            // arr[1] > arr[1] 
+            // arr[2] > arr[1] 
+            // arr[3] > arr[1] arr[1]++ 
+            // [4, 2, 1, 1] 
+            // -----------------------
+            // arr[0] > arr[2] 
+            // arr[1] > arr[2] arr[2]++
+            // arr[2] > arr[2] 
+            // arr[3] > arr[2] arr[2]++
+            // [4, 2, 3, 1] 
+            // -----------------------
+            // arr[0] > arr[3] 
+            // arr[1] > arr[3] 
+            // arr[2] > arr[3] 
+            // arr[3] > arr[3]
+            // [4, 2, 3, 1] 
+*/
