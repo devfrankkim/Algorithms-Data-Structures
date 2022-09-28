@@ -3,6 +3,8 @@
 
   reverse
   every
+
+  for문
   앞에서 부터 ->  arr[i]
   뒤에서 부터  -> [arr.length - i - 1] 
 
