@@ -33,7 +33,7 @@
 // 남은 금액으로 살 수 없다면 (적자) -> 전에 answer 비교후 => return new answer + break; (가장 중요한 포인트)
 
 /* 
-    pesduo code {
+    pseudo code {
     다 돌려서 < 28인지 확인한다. 그러면 5명 전부 가능하기 때문.
 
     상품정보를 하나씩 돌면서 할인받는다고 가정해봄.
@@ -41,14 +41,29 @@
     [a, b]
     ...
 
-      for(i)
-        budget = budget - (arr[i][0] / 2) + arr[i][1]
-         for(j)
-          // 겹치는 부분 제거 -> 다음 턴으로 넘감. 이미 받은 할인과 겹치지 않기 위해서.
-            if(i===j) continue;
+      let answer = 0;
 
-            const tmpSum = product[j][0] + product[j][1];
-  }
+      for(i) {
+        // 첫번째 할인 후 budget 
+         let moneyAfterDiscount = budget - (arr[i][0] / 2) + arr[i][1]
+
+          for(j){
+              // 겹치는 부분 제거 -> 다음 턴으로 넘감. 이미 받은 할인과 겹치지 않기 위해서.
+              if(i===j) continue;
+
+              const tmpSum = product[j][0] + product[j][1];
+              //  ============ 가격을 계속 뺀 후, 적자일때까지 비교함. 다음 budget 계속 확인. ============
+                moneyAfterDiscount = moneyAfterDiscount - (product[j][0] + product[j][1]);
+
+              // ============ if(-1 < budget) 적자가 아니라면, count++  ============
+                cnt++;
+
+              // ============ if(budget ==== negative) 적자 ============
+              // ---------- answer를 outer scope에 정의해둠. 이전 반복문 값들의 answer와 비교도 해줘야기 때문. ----------
+                answer = Math.max(answer, cnt);
+            }
+       }
+
 */
 
 let arr = [
