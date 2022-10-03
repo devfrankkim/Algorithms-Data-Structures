@@ -11,8 +11,8 @@
 // 4*4 = 16
 let arr = [
   [3, 4, 1, 2],
-  [4, 3, 2, 1],
-  [3, 1, 4, 2],
+  // [4, 3, 2, 1],
+  // [3, 1, 4, 2],
 ];
 
 // 앞, 뒤 배열 인덱스만 비교함.
@@ -112,13 +112,14 @@ let arr = [
 //     [3, 1, 4, 2],
 //   ];
 
-// 배열 안에서 특정 학생의 인덱스를 찾는 함수를 정의해줌
-function findMyIndex(student, arr) {
-  console.log("arrrrrr", arr);
+// 배열 안에서 "특정 학생"의 "인덱스"를 찾는 함수를 정의해줌
+function findMyIndex(rank, arr) {
+  for (let index = 0; index < arr.length; index++) {
+    // arr[index] === rank
+    if (arr[index] === rank) {
+      console.log("rank", rank, "index", index);
 
-  for (let current = 0; current < arr.length; current++) {
-    if (arr[current] === student) {
-      return current;
+      return index;
     }
   }
 }
@@ -128,7 +129,7 @@ function solution(test) {
 
   let count = 0;
   const pairs = [];
-
+  const temp = [];
   // 가능한 순서쌍을 pairs 배열에 모두 담아줌
   // [1, 1], [1, 2], ..., [4, 3], [4, 4]
   for (let current = 1; current < numberOfStudents + 1; current++) {
@@ -136,12 +137,23 @@ function solution(test) {
       pairs.push([current, next]);
     }
   }
-  console.log(pairs, "pairs");
 
+  // function findMyIndex(student, arr) {
+  //   // console.log("arrrrrr", arr);
+
+  //   for (let current = 0; current < arr.length; current++) {
+  //     if (arr[current] === student) {
+  //       return current;
+  //     }
+  //   }
+  // }
+
+  console.log(pairs, "pairs");
   // pairs 배열을 돌며 멘토 - 멘티가 가능한 경우만 count
   for ([studentA, studentB] of pairs) {
     let isPossible = true;
 
+    // console.log(studentA, "studentA", studentB, "studentB");
     for (arr of test) {
       if (findMyIndex(studentA, arr) >= findMyIndex(studentB, arr)) {
         isPossible = false;
@@ -150,9 +162,13 @@ function solution(test) {
     }
 
     // 모든 test에 대한 검증이 끝난 이후에도 isPossible === true 라면 count
-    if (isPossible) count++;
-  }
 
+    if (isPossible) {
+      temp.push([studentA, studentB]);
+      count++;
+    }
+  }
+  console.log(temp);
   return count;
 }
 
