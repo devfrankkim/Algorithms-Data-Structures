@@ -6,6 +6,17 @@
       앞에서부터 -> 3개씩 더하기. 
       앞, 뒤 값 같으면 ++1 후에 해보기. 
       3개 값 나눠서 for문 돌리고, 처음 3개 해보기.
+
+      중복제거!  
+      Set() 연산자를 사용하여 중복제거 ( 여러개가 있어도 중복된 값을 한번만 들어간다 )
+      tmp에 중복이 제거된 숫자들을 넣는다.
+      
+      처음에 sum 배열 sort가 제대로 작동하지 않아서 헤맸는데 
+      sort는 기본적으로 숫자를 문자열로 변환하여 정렬을 수행하기 때문에 정렬이 의도대로 실행되지 않은 것이었다.
+
+      Set 객체는 자료형에 관계 없이 원시 값과 객체 참조 모두 유일한 값을 저장할 수 있습니다.
+      카드 합이 중복된 값으로 나올 경우 배열로 풀 때는 잘못된 답이 나올 것이다. 
+      Set 객체를 사용하는 게 맞는 풀이
 */
 
 /*
@@ -64,8 +75,8 @@ solution(arr);
 */
 
 function solution1(n, k, card) {
-  let answer;
   let tmp = new Set();
+
   for (let i = 0; i < n; i++) {
     for (let j = i + 1; j < n; j++) {
       for (let k = j + 1; k < n; k++) {
@@ -73,8 +84,27 @@ function solution1(n, k, card) {
       }
     }
   }
-  let a = Array.from(tmp).sort((a, b) => b - a);
+
+  let answer = Array.from(tmp).sort((a, b) => b - a);
   answer = a[k - 1];
+  return answer;
+}
+
+console.log(solution1(10, 3, arr));
+
+function solution1(n, k, card) {
+  let tmp = new Set();
+
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        tmp.add(card[i] + card[j] + card[k]);
+      }
+    }
+  }
+
+  let answer = [...tmp].sort((a, b) => b - a);
+  answer = answer[k - 1];
   return answer;
 }
 
