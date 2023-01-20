@@ -1,15 +1,22 @@
+// loop the array
+// **** Observe the last box => arr[arr.length - 1] ****
+// (!last || if lastBox.length === size) => get new array
+// else => push to last box
+
 function chunk(array, size) {
   const chunked = [];
 
   for (let element of array) {
-    const last = chunked[chunked.length - 1];
+    const lastBox = chunked[chunked.length - 1];
 
-    if (!last || last.length === size) {
+    if (!lastBox || lastBox.length === size) {
       chunked.push([element]);
     } else {
-      last.push(element);
+      lastBox.push(element);
     }
   }
 
   return chunked;
 }
+
+module.exports = chunk;
