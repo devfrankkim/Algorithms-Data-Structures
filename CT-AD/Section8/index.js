@@ -19,6 +19,8 @@ function buildCharMap(str) {
   const charMap = {};
 
   for (let char of str.replace(/[^\w]/g, "").toLowerCase()) {
+    // if Obj doesn't have [char] -> NaN -> add 1
+    // charMap[char] = charMap[char] + 1 || 1;
     charMap[char] = charMap[char] + 1 || 1;
   }
 
