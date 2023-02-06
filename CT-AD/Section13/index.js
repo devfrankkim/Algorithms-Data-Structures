@@ -22,3 +22,10 @@ function vowels(str) {
   }
   return answer;
 }
+
+// The match() method retrieves the result of matching a string against a regular expression.
+
+function vowels1(str) {
+  const matches = str.match(/[aeiou]/gi);
+  return matches ? matches.length : 0;
+}
