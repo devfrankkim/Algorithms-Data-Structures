@@ -40,7 +40,7 @@ var twoSum1 = function (nums, target) {
   }
 };
 
-// NOTE : 해시맵 O(n) - 학습
+// NOTE : 해시맵 O(n) - 학습하기
 let twoSum2 = function (nums, target) {
   let hash = {};
   for (let i = 0; i < nums.length; i++) {
